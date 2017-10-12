@@ -21,9 +21,9 @@ x = np.array([[-1000.1],
              [1000.1],
              [9000.9]])
 
-range=(0,10)
-x_scale, scaler = numeric.MinMaxScaler(x, range)
-print ('MinMaxScaler with range:', range)
+mrange=(0,10)
+x_scale, scaler = numeric.MinMaxScaler(x, mrange)
+print ('MinMaxScaler with range:', mrange)
 print (x_scale)
 print ('Max: ', np.max(x_scale))
 print ('Min: ', np.min(x_scale))
@@ -107,7 +107,7 @@ models.train_and_evaluate_regression(clf_sgd, X_train, y_train)
 
 from sklearn import svm
 
-print ('\nUsing SVR with linear kernel\n')
+''' print ('\nUsing SVR with linear kernel\n')
 clf_svr = svm.SVR(kernel='linear')
 models.train_and_evaluate_regression(clf_svr, X_train, y_train)
 
@@ -136,7 +136,7 @@ from sklearn import ensemble
 from sklearn.tree import DecisionTreeRegressor
 clf_et=ensemble.AdaBoostRegressor(DecisionTreeRegressor(), n_estimators=50)
 m = models.train_and_evaluate_regression(clf_et, X_train, y_train)
-models.predict_and_evaluate_regression(m, X_test, y_test)
+models.predict_and_evaluate_regression(m, X_test, y_test) '''
 
 print ('\nUsing GradientBoostingRegressor\n')
 from sklearn import ensemble
@@ -144,3 +144,24 @@ from sklearn.tree import DecisionTreeRegressor
 clf_et=ensemble.GradientBoostingRegressor(n_estimators=50)
 m = models.train_and_evaluate_regression(clf_et, X_train, y_train)
 models.predict_and_evaluate_regression(m, X_test, y_test)
+
+importances = m.feature_importances_
+std = np.std([tree[0].feature_importances_ for tree in m.estimators_],
+             axis=0)
+indices = np.argsort(importances)[::-1]
+
+# Print the feature ranking
+print("Feature ranking:")
+
+for f in range(X_train.shape[1]):
+    print("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+
+# Plot the feature importances of the forest
+plt.figure()
+plt.title("Feature importances")
+plt.bar(range(X_train.shape[1]), importances[indices],
+       color="r", yerr=std[indices], align="center")
+plt.xticks(range(0,X_train.shape[1], 1), indices)
+plt.xlim([-1, X_train.shape[1]])
+plt.show()
+
