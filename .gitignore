@@ -6,6 +6,10 @@
 #VS Code
 .vscode/
 
+#Jupyter notebooks
+.ipynb_checkpoints/
+__pycache__/
+
 # User-specific files
 *.suo
 *.user
