@@ -19,9 +19,3 @@ def predict_and_evaluate_regression(model, X_test, y_test):
     print ("Variance score: %.2f" % r2_score(y_test, y_pred))
     return y_pred
 
-def getCoefficientsDataFrame(feature_names, coefs):
-    T = pd.DataFrame()
-    T['feature'] = feature_names
-    T['coefs'] = coefs
-    T['weight'] = T['coefs'].apply(lambda x: math.fabs(x))
-    return T.sort_values(by='weight', ascending=False)
