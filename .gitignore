@@ -4,10 +4,10 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 #VS Code
-.vscode/
+vscode/
 
 #Jupyter notebooks
-.ipynb_checkpoints/
+ipynb_checkpoints/
 __pycache__/
 
 # User-specific files
@@ -18,6 +18,9 @@ __pycache__/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+
+# special
+datasets/
 
 # Build results
 [Dd]ebug/
