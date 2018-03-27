@@ -6,6 +6,9 @@
 #VS Code
 vscode/
 
+# special
+/datasets/
+
 #Jupyter notebooks
 ipynb_checkpoints/
 __pycache__/
