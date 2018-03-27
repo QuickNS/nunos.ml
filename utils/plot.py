@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 def showLabelDistributionByCategory(data, categorical_feature, label):
     fig = plt.figure(figsize=(12,6))
     ax = fig.add_subplot(121)
