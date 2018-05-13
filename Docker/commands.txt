@@ -1,0 +1,6 @@
+
+sudo nvidia-docker build -f Dockerfile -t retinanet .
+sudo nvidia-docker run -it -d -p 0.0.0.0:6006:6006 -p 0.0.0.0:8888:8888 -v {data path}:/data/ retinanet
+nvidia-docker exec -it {docker id} bash
+
+train_pascal.py {/data/path to data}

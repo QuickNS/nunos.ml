@@ -1,0 +1,9 @@
+address: nunosdl.westeurope.cloudapp.azure.com
+baseDockerImage: 'microsoft/mmlspark:plus-gpu-0.9.9'
+nativeSharedDirectory: ~/.azureml/share/
+password: 'AzureMlSecret=dsvm_docker#nunos#0e85161935d749bea642f7af1180d5dd'
+sharedVolumes: true
+type: remotedocker
+userManagedEnvironment: false
+username: nunos
+nvidiaDocker: true

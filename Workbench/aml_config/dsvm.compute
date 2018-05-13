@@ -1,0 +1,7 @@
+address: nunosdl.westeurope.cloudapp.azure.com
+nativeSharedDirectory: ~/.azureml/share/
+password: AzureMlSecret=dsvm#nunos#325a968f1de4456994a310e8f1277e71
+pythonLocation: python3
+type: remote
+userManagedEnvironment: true
+username: nunos

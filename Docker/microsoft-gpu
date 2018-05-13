@@ -1,0 +1,4 @@
+# Todo Add flags for training and evaluation
+
+FROM microsoft/mmlspark:plus-gpu-0.9.9
+RUN pip install keras Pillow h5py opencv-python --user
