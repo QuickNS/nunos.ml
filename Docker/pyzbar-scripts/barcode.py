@@ -16,7 +16,7 @@ def readBarcode(image):
         barcodes.append(obj.data.decode('ascii'))
     return barcodes
     
-im = cv2.imread('barcode_02.jpg')
+im = cv2.imread('barcode_01.jpg')
 
 barcodes = np.array([])
 for i in [200, 500, 1000]:
