@@ -17,6 +17,9 @@ def DetectOutliers(x):
     indices = x[(x > upper_bound) | (x < lower_bound)].index
     return indices
 
+def DetectPercentageMissing(data):
+    data.isnull().sum().sort_index()/len(data)
+
 def DetectMissing(data):
     return data.isnull().sum()
 
